@@ -1,6 +1,6 @@
 # deamtiet
 
-
+[![Coverage Status](https://coveralls.io/repos/github/furplag/deamtiet/badge.svg?branch=master)](https://coveralls.io/github/furplag/deamtiet?branch=master)
 
 help us to understand to Date/Time API.
 
