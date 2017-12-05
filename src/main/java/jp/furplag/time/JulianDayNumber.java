@@ -1,8 +1,21 @@
+/**
+ * Copyright (C) 2017+ furplag (https://github.com/furplag)
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package jp.furplag.time;
 
 import java.time.Instant;
-import java.time.ZonedDateTime;
-import java.time.temporal.ChronoUnit;
 
 public final class JulianDayNumber {
 
@@ -17,7 +30,7 @@ public final class JulianDayNumber {
   }
 
   /**
-   * Calculates the Julian Day Number from {@link Millis#epochOfJulian} .
+   * Calculates the Julian Day Number from the days from {@link Millis#epoch} .
    *
    * @param julianDate the Astronomical Julian Date from {@link Millis#epochOfJulian}
    * @return the Julian Day Number from {@link Millis#epochOfJulian}
@@ -50,30 +63,4 @@ public final class JulianDayNumber {
    * JulianDayNumber instances should NOT be constructed in standard programming .
    */
   private JulianDayNumber() {}
-
-  public static void main(String[] args) {
-    Instant instant = Instant.from(ZonedDateTime.parse("2017-11-30T00:00:00Z"));
-    System.out.println(instant);
-    double julian = Julian.ofEpochMillis(instant.toEpochMilli());
-    System.out.println(julian);
-    Instant instant2 = Julian.toInstant(julian);
-    while (instant2.isBefore(ZonedDateTime.parse("2017-12-03T00:00:00Z").toInstant())) {
-      System.out.print(instant2);
-      System.out.print(" : ");
-      System.out.print(ofJulian(Julian.ofEpochMillis(instant2.toEpochMilli())));
-      System.out.print(" : ");
-      System.out.println(toInstant(ofJulian(Julian.ofEpochMillis(instant2.toEpochMilli()))));
-      instant2 = instant2.plus(6, ChronoUnit.HOURS);
-    }
-    System.out.println(Millis.toInstant(Millis.ofModifiedJulian(51544)));
-    System.out.println(Millis.toInstant(1512086400L));
-
-    Instant instant3 = Instant.from(ZonedDateTime.parse("2017-09-09T12:30:45Z"));
-    System.out.println(Millis.toUnixDate(instant3.toEpochMilli()));
-    System.out.println(Millis.toUnixTime(instant3.toEpochMilli()));
-
-    System.out.println(Instant.ofEpochSecond(Millis.toUnixTime(instant3.toEpochMilli())));
-
-    System.out.println(Instant.ofEpochSecond(Millis.toUnixDate(instant3.toEpochMilli())));
-  }
 }

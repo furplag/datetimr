@@ -1,5 +1,6 @@
 # deamtiet
 
+[![Build Status](https://travis-ci.org/furplag/deamtiet.svg?branch=master)](https://travis-ci.org/furplag/deamtiet)
 [![Coverage Status](https://coveralls.io/repos/github/furplag/deamtiet/badge.svg?branch=master)](https://coveralls.io/github/furplag/deamtiet?branch=master)
 
 help us to understand to Date/Time API.
@@ -24,7 +25,7 @@ Add the following snippet to any project's pom that depends on your project
   <dependency>
     <groupId>jp.furplag.sandbox</groupId>
     <artifactId>deamtiet</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
   </dependency>
 </dependencies>
 ```
