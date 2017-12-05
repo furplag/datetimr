@@ -20,7 +20,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>jp.furplag.sandbox</groupId>
   <artifactId>deamtiet</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.0</version>
   <inceptionYear>2017</inceptionYear>
   <name>${project.artifactId}</name>
   <description>help us to understand to Date/Time API.</description>

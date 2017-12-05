@@ -13,6 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
 package jp.furplag.time;
 
 import java.time.Instant;
@@ -32,7 +33,7 @@ public class ModifiedJulian {
    * @return the Modified Julian Date from {@link Millis#epochOfModifiedJulian}
    */
   public static double ofEpochMillis(final long epochMillis) {
-    return Julian.ofEpochMillis(epochMillis) + Millis.epochOfModifiedJulian;
+    return Julian.ofEpochMillis(epochMillis) - Millis.epochOfModifiedJulian;
   }
 
   /**
