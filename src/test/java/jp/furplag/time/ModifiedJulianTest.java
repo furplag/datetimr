@@ -35,8 +35,8 @@ public class ModifiedJulianTest {
 
   @Test
   public void testOfEpochMillis() {
-    assertThat(ModifiedJulian.ofEpochMillis(Instant.parse("1858-11-17T00:00:00.000Z").toEpochMilli()), is(0d));
-    assertThat(ModifiedJulian.ofEpochMillis(Instant.parse("2000-01-01T00:00:00Z").toEpochMilli()), is(51_544d));
+    assertThat(ModifiedJulian.ofEpochMilli(Instant.parse("1858-11-17T00:00:00.000Z").toEpochMilli()), is(0d));
+    assertThat(ModifiedJulian.ofEpochMilli(Instant.parse("2000-01-01T00:00:00Z").toEpochMilli()), is(51_544d));
   }
 
   @Test

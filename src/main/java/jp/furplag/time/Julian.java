@@ -19,28 +19,40 @@ package jp.furplag.time;
 import java.time.Instant;
 
 /**
- * code snippets of astronomical julian date .
+ * code snippets of astronomical julian day .
  *
  * @author furplag
  *
  */
 public final class Julian {
 
+  /** astronomical julian date of 2001-01-01T12:00:00.000Z. */
+  public static final double j2000 = 2451545.0;
+
+  /** the days of julian year. */
+  public static final double daysOfYear = 365.25;
+
+  /** delta of the days of a month in the lunar. */
+  public static final double incrementOfSynodicMonth = 2.162E-9;
+
+  /** astronomical julian date of 1582-10-15T00:00:00.000Z. */
+  public static final double epochOfGregorian = 2299160.5;
+
   /**
-   * Calculates the astronomical Julian Date from {@link Millis#epochOfJulian} .
+   * calculates the astronomical julian date from {@link Millis#epochOfJulian} .
    *
-   * @param the epoch millis from {@link Millis#epoch}
-   * @return the Astronomical Julian Date from {@link Millis#epochOfJulian}
+   * @param epochMilli the epoch millis from {@link Millis#epoch}
+   * @return the astronomical julian date
    */
-  public static double ofEpochMillis(final long epochMillis) {
-    return (Long.valueOf(epochMillis).doubleValue() / ((double) Millis.ofDay)) + Millis.epoch;
+  public static double ofEpochMilli(final long epochMilli) {
+    return (Long.valueOf(epochMilli).doubleValue() / ((double) Millis.ofDay)) + Millis.epoch;
   }
 
   /**
    * substitute for {@link Instant#ofEpochMilli(long)} .
    *
-   * @param julianDate the Astronomical Julian Date from {@link Millis#epochOfJulian}
-   * @return an {@link Instant} represented by specified Astronomical Julian Date from {@link Millis#epochOfJulian}
+   * @param julianDate the astronomical julian date
+   * @return an {@link Instant} represented by specified astronomical julian date
    */
   public static Instant toInstant(final double julianDate) {
     return Instant.ofEpochMilli(Millis.ofJulian(julianDate));

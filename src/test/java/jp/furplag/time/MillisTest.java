@@ -55,15 +55,15 @@ public class MillisTest {
 
   @Test
   public void testToUnixDay() {
-    assertThat(Millis.toUnixDay(0), is(0L));
-    assertThat(Millis.toUnixDay(12345), is(0L));
-    assertThat(Millis.toUnixDay(12345L * 86400_000), is(12345L));
+    assertThat(Millis.toEpochDay(0), is(0L));
+    assertThat(Millis.toEpochDay(12345), is(0L));
+    assertThat(Millis.toEpochDay(12345L * 86400_000), is(12345L));
   }
 
   @Test
   public void testToUnixTime() {
-    assertThat(Millis.toUnixTime(0), is(0L));
-    assertThat(Millis.toUnixTime(12345), is(12L));
-    assertThat(Millis.toUnixTime(12345L * 1000), is(12345L));
+    assertThat(Millis.toEpochSecond(0), is(0L));
+    assertThat(Millis.toEpochSecond(12345), is(12L));
+    assertThat(Millis.toEpochSecond(12345L * 1000), is(12345L));
   }
 }

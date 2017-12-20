@@ -19,53 +19,59 @@ package jp.furplag.time;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 
+/**
+ * code snippets of astronomical julian day number .
+ *
+ * @author furplag
+ *
+ */
 public final class JulianDayNumber {
 
   /**
-   * Calculates the Julian Day Number from the milliseconds from {@link Millis#epoch} .
+   * calculates the julian day number from the milliseconds from {@link Millis#epoch} .
    *
-   * @param the epoch millis from {@link Millis#epoch}
-   * @return the Julian Day Number from {@link Millis#epochOfJulian}
+   * @param epochMilli the epoch millis from {@link Millis#epoch}
+   * @return the julian day number
    */
-  public static long ofEpochMillis(final long epochMillis) {
-    return ofJulian(Julian.ofEpochMillis(epochMillis));
+  public static long ofEpochMilli(final long epochMilli) {
+    return ofJulian(Julian.ofEpochMilli(epochMilli));
   }
 
   /**
-   * Calculates the Julian Day Number from {@link Millis#epochOfJulian} .
+   * calculates the julian day number .
    *
-   * @param julianDate the Astronomical Julian Date from {@link Millis#epochOfJulian}
-   * @return the Julian Day Number from {@link Millis#epochOfJulian}
+   * @param julianDate the astronomical julian date from {@link Millis#epochOfJulian}
+   * @return the julian day number
    */
   public static long ofJulian(final double julianDate) {
-    return (long) (julianDate + .5d);
+    return (long) (julianDate + .5);
   }
 
   /**
-   * Calculates the Julian Day Number from {@link Millis#epochOfModifiedJulian} .
+   * calculates the julian day number from {@link Millis#epochOfJulian} .
    *
-   * @param modifiedJulianDate the Modified Julian Date from {@link Millis#epochOfModifiedJulian}
-   * @return the Julian Day Number from {@link Millis#epochOfModifiedJulian}
+   * @param modifiedJulianDate the modified julian date from {@link Millis#epochOfModifiedJulian}
+   * @return the julian day number
    */
   public static long ofModifiedJulian(final double modifiedJulianDate) {
-    return ofJulian(modifiedJulianDate + ((long) Millis.epochOfModifiedJulian));
+    return ofJulian(((long) modifiedJulianDate) + Millis.epochOfModifiedJulian);
   }
 
   /**
-   * Calculates the Julian Day Number from the days from {@link Millis#epoch} .
+   * calculates the julian day number from the days from {@link Millis#epochOfJulian} .
    *
-   * @param julianDate the Astronomical Julian Date from {@link Millis#epochOfJulian}
-   * @return the Julian Day Number from {@link Millis#epochOfJulian}
+   * @param epochDay the days from {@link Millis#epoch}
+   * @return the julian day number
    */
-  public static long ofUnixDays(final long unixDays) {
-    return (long) (((double) unixDays) + Millis.epoch + .5d);
+  public static long ofEpochDay(final long epochDay) {
+    return (long) (epochDay + Millis.epoch + .5);
   }
 
   /**
    * substitute for {@link Instant#ofEpochMilli(long)} .
    *
-   * @param julianDate the Astronomical Julian Date from {@link Millis#epochOfJulian}
-   * @return an {@link Instant} represented by specified Astronomical Julian Date from {@link Millis#epochOfJulian}
+   * @param julianDayNumber the julian day number from the days from {@link Millis#epochOfJulian}
+   * @return an {@link Instant} represented by specified julian day number
    */
   public static Instant toInstant(final long julianDayNumber) {
     return Millis.toInstant(Millis.ofJulian(((long) ((double) julianDayNumber) - .5d))).truncatedTo(ChronoUnit.DAYS);

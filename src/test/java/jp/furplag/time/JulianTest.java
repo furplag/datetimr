@@ -35,8 +35,8 @@ public class JulianTest {
 
   @Test
   public void testOfEpochMillis() {
-    assertThat(Julian.ofEpochMillis(0), is(Millis.epoch));
-    assertThat(Julian.ofEpochMillis(Millis.epochOfJulian), is(0d));
+    assertThat(Julian.ofEpochMilli(0), is(Millis.epoch));
+    assertThat(Julian.ofEpochMilli(Millis.epochOfJulian), is(0d));
   }
 
   @Test

@@ -19,7 +19,7 @@ package jp.furplag.time;
 import java.time.Instant;
 
 /**
- * code snippets of Modified Julian Date .
+ * code snippets of modified julian date .
  *
  * @author furplag
  *
@@ -27,20 +27,20 @@ import java.time.Instant;
 public class ModifiedJulian {
 
   /**
-   * Calculates the Modified Julian Date from {@link Millis#epochOfModifiedJulian} .
+   * calculates the modified julian date from {@link Millis#epochOfModifiedJulian} .
    *
-   * @param the epoch millis from {@link Millis#epoch}
-   * @return the Modified Julian Date from {@link Millis#epochOfModifiedJulian}
+   * @param epochMilli the epoch millis from {@link Millis#epoch}
+   * @return the modified julian date from {@link Millis#epochOfModifiedJulian}
    */
-  public static double ofEpochMillis(final long epochMillis) {
-    return Julian.ofEpochMillis(epochMillis) - Millis.epochOfModifiedJulian;
+  public static double ofEpochMilli(final long epochMilli) {
+    return Julian.ofEpochMilli(epochMilli) - Millis.epochOfModifiedJulian;
   }
 
   /**
    * substitute for {@link Instant#ofEpochMilli(long)} .
    *
-   * @param modifiedJulianDate the Modified Julian Date from {@link Millis#epochOfModifiedJulian}
-   * @return an {@link Instant} represented by specified Astronomical Julian Date from {@link Millis#epochOfModifiedJulian}
+   * @param modifiedJulianDate the modified julian date
+   * @return an {@link Instant} represented by specified modified julian date from {@link Millis#epochOfModifiedJulian}
    */
   public static Instant toInstant(final double modifiedJulianDate) {
     return Instant.ofEpochMilli(Millis.ofModifiedJulian(modifiedJulianDate));
