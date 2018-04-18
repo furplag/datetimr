@@ -17,6 +17,8 @@
 package jp.furplag.time;
 
 import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 
 /**
  * code snippets of timestamp .
@@ -89,6 +91,27 @@ public final class Millis {
    */
   public static long toEpochSecond(final long epochMilli) {
     return epochMilli / 1000L;
+  }
+
+  /**
+   * shorthand for {@code ZonedDateTime.ofInstant(Millis.toInstant(epochMilli), ZoneId.systemDefault()).toLocalDateTime()} .
+   *
+   * @param epochMilli the epoch millis from {@link Millis#epoch epoch}
+   * @return {@link LocalDateTime}
+   */
+  public static LocalDateTime toLocalDateTime(final long epochMilli) {
+    return Deamtiet.toLocalDateTime(toInstant(epochMilli), null);
+  }
+
+  /**
+   * shorthand for {@code ZonedDateTime.ofInstant(Millis.toInstant(epochMilli), ZoneId.systemDefault()).toLocalDateTime()} .
+   *
+   * @param epochMilli the epoch millis from {@link Millis#epoch epoch}
+   * @param zoneId {@link ZoneId}
+   * @return {@link LocalDateTime}
+   */
+  public static LocalDateTime toLocalDateTime(final long epochMilli, final ZoneId zoneId) {
+    return Deamtiet.toLocalDateTime(toInstant(epochMilli), zoneId);
   }
 
   /**

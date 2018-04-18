@@ -21,7 +21,9 @@ import static org.junit.Assert.*;
 
 import java.lang.reflect.Constructor;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.stream.IntStream;
 
 import org.junit.Test;
 
@@ -65,5 +67,16 @@ public class MillisTest {
     assertThat(Millis.toEpochSecond(0), is(0L));
     assertThat(Millis.toEpochSecond(12345), is(12L));
     assertThat(Millis.toEpochSecond(12345L * 1000), is(12345L));
+  }
+
+  @Test
+  public void testToLocalDateTime() {
+    IntStream.rangeClosed(-10000, 10000).boxed().forEach(i -> {
+      assertThat(Millis.toLocalDateTime(i * Millis.ofDay, null), is(ZonedDateTime.ofInstant(Instant.ofEpochMilli(i * Millis.ofDay), ZoneId.systemDefault()).toLocalDateTime()));
+      assertThat(Millis.toLocalDateTime(i * Millis.ofDay), is(ZonedDateTime.ofInstant(Instant.ofEpochMilli(i * Millis.ofDay), ZoneId.systemDefault()).toLocalDateTime()));
+      ZoneId.getAvailableZoneIds().stream().map(ZoneId::of).forEach(z -> {
+        assertThat(Millis.toLocalDateTime(i * Millis.ofDay, z), is(ZonedDateTime.ofInstant(Instant.ofEpochMilli(i * Millis.ofDay), z).toLocalDateTime()));
+      });
+    });
   }
 }
