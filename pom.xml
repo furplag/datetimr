@@ -50,6 +50,10 @@
       <url>file://${project.build.directory}/mvn-repo</url>
     </repository>
   </distributionManagement>
+  <issueManagement>
+    <url>${project.url}/issues</url>
+    <system>GitHub Issues</system>
+  </issueManagement>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
