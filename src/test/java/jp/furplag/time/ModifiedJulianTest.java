@@ -26,6 +26,7 @@ import org.junit.Test;
 
 public class ModifiedJulianTest {
 
+  @SuppressWarnings("deprecation")
   @Test
   public void test() throws ReflectiveOperationException, SecurityException {
     Constructor<ModifiedJulian> c = ModifiedJulian.class.getDeclaredConstructor();
@@ -33,12 +34,14 @@ public class ModifiedJulianTest {
     assertThat(c.newInstance() instanceof ModifiedJulian, is(true));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfEpochMillis() {
     assertThat(ModifiedJulian.ofEpochMilli(Instant.parse("1858-11-17T00:00:00.000Z").toEpochMilli()), is(0d));
     assertThat(ModifiedJulian.ofEpochMilli(Instant.parse("2000-01-01T00:00:00Z").toEpochMilli()), is(51_544d));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfToInstant() {
     assertThat(ModifiedJulian.toInstant(0), is(Instant.parse("1858-11-17T00:00:00.000Z")));

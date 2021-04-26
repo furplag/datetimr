@@ -17,6 +17,9 @@
 package jp.furplag.time;
 
 import java.time.Instant;
+import java.util.Map;
+import java.util.stream.DoubleStream;
+import java.util.stream.LongStream;
 
 /**
  * code snippets of astronomical julian day .
@@ -45,7 +48,11 @@ public final class Julian {
    * @return the astronomical julian date
    */
   public static double ofEpochMilli(final long epochMilli) {
-    return (Long.valueOf(epochMilli).doubleValue() / ((double) Millis.ofDay)) + Millis.epoch;
+    final double milliAsJulian = 1d / Millis.ofDay;
+    return LongStream.of(epochMilli).mapToObj((l) -> Map.entry(l * milliAsJulian, (l * milliAsJulian) % milliAsJulian))
+      .mapToDouble((m) -> m.getKey() - m.getValue() + (m.getValue() * 2 < milliAsJulian ? 0 : milliAsJulian))
+      .flatMap((d) -> DoubleStream.of(d, Millis.epoch))
+      .sum();
   }
 
   /**

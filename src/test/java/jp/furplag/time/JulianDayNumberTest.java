@@ -26,6 +26,7 @@ import org.junit.Test;
 
 public class JulianDayNumberTest {
 
+  @SuppressWarnings("deprecation")
   @Test
   public void test() throws ReflectiveOperationException, SecurityException {
     Constructor<JulianDayNumber> c = JulianDayNumber.class.getDeclaredConstructor();
@@ -37,30 +38,35 @@ public class JulianDayNumberTest {
     assertThat(JulianDayNumber.ofEpochMilli(Instant.parse("1999-01-01T00:00:00.000Z").toEpochMilli()), is(JulianDayNumber.ofEpochMilli(Instant.parse("1999-01-01T23:59:59.999Z").toEpochMilli())));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfEpochMillis() {
     assertThat(JulianDayNumber.ofEpochMilli(0), is(((long)(Millis.epoch + .5d))));
     assertThat(JulianDayNumber.ofEpochMilli(Millis.epochOfJulian), is(0L));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfJulian() {
     assertThat(JulianDayNumber.ofJulian(0), is(0L));
     assertThat(JulianDayNumber.ofJulian(Millis.epoch), is(2440_588L));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfModifiedJulian() {
     assertThat(JulianDayNumber.ofModifiedJulian(0), is(2400_001L));
     assertThat(JulianDayNumber.ofModifiedJulian(40587.5d), is(2440_588L));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfEpochDay() {
     assertThat(JulianDayNumber.ofEpochDay(0), is(2440_588L));
     assertThat(JulianDayNumber.ofEpochDay(Millis.toEpochDay(Instant.parse("2000-01-01T00:00:00.000Z").toEpochMilli())), is(((long) (Julian.ofEpochMilli(Instant.parse("2000-01-01T00:00:00.000Z").toEpochMilli()) + .5d))));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testToInstant() {
     assertThat(JulianDayNumber.toInstant(0), is(Instant.parse("-4713-11-24T00:00:00.000Z")));
