@@ -29,6 +29,7 @@ import org.junit.Test;
 
 public class MillisTest {
 
+  @SuppressWarnings("deprecation")
   @Test
   public void test() throws ReflectiveOperationException, SecurityException {
     Constructor<Millis> c = Millis.class.getDeclaredConstructor();
@@ -36,12 +37,14 @@ public class MillisTest {
     assertThat(c.newInstance() instanceof Millis, is(true));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfJulian() {
     assertThat(Millis.ofJulian(0), is(Millis.epochOfJulian));
     assertThat(Millis.ofJulian(0), is(Instant.from(ZonedDateTime.parse("-4713-11-24T12:00:00Z")).toEpochMilli()));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testOfModifiedJulian() {
     assertThat(Millis.ofModifiedJulian(0), is(Instant.from(ZonedDateTime.parse("1858-11-17T00:00:00Z")).toEpochMilli()));
@@ -49,12 +52,14 @@ public class MillisTest {
     assertThat(Instant.ofEpochMilli(Millis.ofModifiedJulian(51_544d)), is(Instant.from(ZonedDateTime.parse("2000-01-01T00:00:00Z"))));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testToInstant() {
     assertThat(Millis.toInstant(0), is(Instant.from(ZonedDateTime.parse("1970-01-01T00:00:00Z"))));
     assertThat(Millis.toInstant(Millis.epochOfGregorian), is(Instant.from(ZonedDateTime.parse("1582-10-15T00:00Z"))));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testToUnixDay() {
     assertThat(Millis.toEpochDay(0), is(0L));
@@ -62,6 +67,7 @@ public class MillisTest {
     assertThat(Millis.toEpochDay(12345L * 86400_000), is(12345L));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testToUnixTime() {
     assertThat(Millis.toEpochSecond(0), is(0L));
@@ -69,6 +75,7 @@ public class MillisTest {
     assertThat(Millis.toEpochSecond(12345L * 1000), is(12345L));
   }
 
+  @SuppressWarnings("deprecation")
   @Test
   public void testToLocalDateTime() {
     IntStream.rangeClosed(-10000, 10000).boxed().forEach(i -> {

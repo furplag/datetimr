@@ -30,6 +30,7 @@ import org.junit.Test;
 
 public class DeamtietTest implements Deamtiet {
 
+  @SuppressWarnings("deprecation")
   @Test
   public void test() {
     assertThat(Duration.between(Deamtiet.toLocalDateTime(null, null), LocalDateTime.now()).get(ChronoUnit.SECONDS), is(0L));
