@@ -1,5 +1,5 @@
 # deamtiet
-
+[![deprecated](https://img.shields.io/badge/deprecated-integrated%20as%20a%20part%20of%20Relic-red.svg)](https://github.com/furplag/relic)
 [![Build Status](https://travis-ci.org/furplag/deamtiet.svg?branch=master)](https://travis-ci.org/furplag/deamtiet)
 [![Coverage Status](https://coveralls.io/repos/github/furplag/deamtiet/badge.svg?branch=master)](https://coveralls.io/github/furplag/deamtiet?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/8781854d4e3749f191534807cf439b73)](https://www.codacy.com/app/furplag/deamtiet?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=furplag/deamtiet&amp;utm_campaign=Badge_Grade)
@@ -28,7 +28,7 @@ Add the following snippet to any project's pom that depends on your project
   <dependency>
     <groupId>jp.furplag.sandbox</groupId>
     <artifactId>deamtiet</artifactId>
-    <version>1.0.0</version>
+    <version>2.0.1-FINAL</version>
   </dependency>
 </dependencies>
 ```
